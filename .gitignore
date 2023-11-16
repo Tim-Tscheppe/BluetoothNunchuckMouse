@@ -1,0 +1,23 @@
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+### STM32 ###
+.STM/Debug/
+.STM/Core/
+.STM/Drivers/CMSIS/
+.STM/Drivers/STM32L0xx_HAL_Driver
+*.cproject
+*.mxproject
+*.project
+*.ioc
+*.id
