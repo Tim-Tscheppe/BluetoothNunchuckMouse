@@ -1,7 +1,7 @@
 # BluetoothNunchuckMouse
 STM32 Implementation of Nunchuck-Controlled Bluetooth Mouse. Designed for L053R8 but will work for most boards with common peripherals.
 
-To build:
+To build (after cloning project into top-level STM32 project directory):
 
 1. Create a new STM project with the following peripherals enabled:
 - UART (for bluetooth)
