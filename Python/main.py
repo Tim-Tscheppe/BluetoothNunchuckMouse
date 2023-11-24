@@ -27,7 +27,11 @@ while True:
     line = ser.readline()
     x, y, z, c = map(int, line.split(','))
 
-    # TODO: Figure out how x and y map to the screen (may need to comment this out initially or scale nunchuck values)
+    # Scale x and y to 1980x1020 resolution (values go between 30 and 230 according to Nunchuck lab)
+    x = ((x - 30) / 200) * 1920 # 230 - 30 = 200
+    y = ((y - 30) / 200) * 1080
+
+    # Use a 0.1 s duration so there is some time in between each loop iteration
     pyautogui.moveTo(x, y, duration=0.1)
     if(z == 1):
         pyautogui.click()
