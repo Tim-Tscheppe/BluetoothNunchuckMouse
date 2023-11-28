@@ -27,7 +27,7 @@ while True:
     line = ser.readline()
     x, y, z, c = map(int, line.split(','))
 
-    # Scale x and y to 1980x1020 resolution (values go between 30 and 230 according to Nunchuck lab)
+    # Scale x and y to 1920x1080 resolution (values go between 30 and 230 according to Nunchuck lab)
     x = ((x - 30) / 200) * 1920 # 230 - 30 = 200
     y = ((y - 30) / 200) * 1080
 
