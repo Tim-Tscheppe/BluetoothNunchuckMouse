@@ -9,9 +9,9 @@ To build (after cloning project into top-level STM32 project directory):
 
 2. Copy the STM/Src/main.c folder into the Core/Src/ folder in your STM project (Or wherever your main program is housed). You will likely have to change some of the HAL pins from what we have to whatever board you are using.
 
-3. Program board.
+3. Program board.You will have to uncomment the bluetooth_module_init() function on the first run.
 
-4. Connect host PC to bluetooth module. You will have to uncomment the 'bluetooth_module_init()' function on the first run.
+4. Connect host PC to bluetooth module. 
 
 5. Install packages and run Python code on host PC (Python3.6 +):
 ~~~
