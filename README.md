@@ -11,7 +11,7 @@ To build (after cloning project into top-level STM32 project directory):
 
 3. Program board.
 
-4. Connect host PC to bluetooth module. You will have to uncomment the '{bluetooth_module_init()}' function on the first run.
+4. Connect host PC to bluetooth module. You will have to uncomment the 'bluetooth_module_init()' function on the first run.
 
 5. Install packages and run Python code on host PC (Python3.6 +):
 ~~~
