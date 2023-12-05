@@ -43,6 +43,11 @@ uint16_t accel_z_axis = 0;
 uint16_t z_button = 0;
 uint16_t c_button = 0;
 
+uint16_t last_joy_x_axis = 0;
+uint16_t last_joy_y_axis = 0;
+uint16_t last_z_button = 0;
+uint16_t last_c_button = 0;
+
 int main(void)
 {
   uint32_t i;
@@ -68,7 +73,7 @@ int main(void)
     NunChuck_translate_data();
     // Send data via Bluetooth Serial Terminal
     NunChuck_print_data();
-    HAL_Delay(1);
+    HAL_Delay(10);
   }
 }
 
@@ -139,6 +144,7 @@ void NunChuck_translate_data(void)
 
 void NunChuck_print_data(void)
 {
+    if(joy_x_axis != last_joy_x_axis ||joy_y_axis != last_joy_y_axis || z_button != last_z_button ||c_button != last_c_button){
   // this is called as many times as reads from the NunChuck
   sprintf(text_buffer, "%03d,", joy_x_axis);
   HAL_UART_Transmit(&huart1, (uint8_t*)text_buffer, strlen(text_buffer), HAL_MAX_DELAY);
@@ -148,6 +154,11 @@ void NunChuck_print_data(void)
   HAL_UART_Transmit(&huart1, (uint8_t*)text_buffer, strlen(text_buffer), HAL_MAX_DELAY);
   sprintf(text_buffer, "%01d\r\n", c_button);
   HAL_UART_Transmit(&huart1, (uint8_t*)text_buffer, strlen(text_buffer), HAL_MAX_DELAY);
+  last_joy_x_axis = joy_x_axis;
+  last_joy_y_axis = joy_y_axis;
+  last_z_button = z_button;
+  last_c_button = c_button;
+  }
 }
 
 void BT_module_rename(void)
